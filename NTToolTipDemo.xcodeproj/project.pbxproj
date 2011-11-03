@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA66855B14635C4800F0A64F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA66855A14635C4800F0A64F /* UIKit.framework */; };
+		CA66855D14635C4800F0A64F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA66855C14635C4800F0A64F /* Foundation.framework */; };
+		CA66855F14635C4800F0A64F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA66855E14635C4800F0A64F /* CoreGraphics.framework */; };
+		CA66856514635C4800F0A64F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA66856314635C4800F0A64F /* InfoPlist.strings */; };
+		CA66856714635C4800F0A64F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66856614635C4800F0A64F /* main.m */; };
+		CA66856B14635C4800F0A64F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66856A14635C4800F0A64F /* AppDelegate.m */; };
+		CA66856E14635C4800F0A64F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66856D14635C4800F0A64F /* ViewController.m */; };
+		CA66857114635C4800F0A64F /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA66856F14635C4800F0A64F /* ViewController_iPhone.xib */; };
+		CA66857414635C4800F0A64F /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA66857214635C4800F0A64F /* ViewController_iPad.xib */; };
+		CA66857C14635C4800F0A64F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA66857B14635C4800F0A64F /* SenTestingKit.framework */; };
+		CA66857D14635C4800F0A64F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA66855A14635C4800F0A64F /* UIKit.framework */; };
+		CA66857E14635C4800F0A64F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA66855C14635C4800F0A64F /* Foundation.framework */; };
+		CA66858614635C4800F0A64F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA66858414635C4800F0A64F /* InfoPlist.strings */; };
+		CA66858914635C4800F0A64F /* NTToolTipDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66858814635C4800F0A64F /* NTToolTipDemoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA66857F14635C4800F0A64F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA66854D14635C4700F0A64F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA66855514635C4700F0A64F;
+			remoteInfo = NTToolTipDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CA66855614635C4800F0A64F /* NTToolTipDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NTToolTipDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA66855A14635C4800F0A64F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CA66855C14635C4800F0A64F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CA66855E14635C4800F0A64F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CA66856214635C4800F0A64F /* NTToolTipDemo-Info.plist */ = {isa = PBXFileReference; path = "NTToolTipDemo-Info.plist"; sourceTree = "<group>"; };
+		CA66856414635C4800F0A64F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CA66856614635C4800F0A64F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CA66856814635C4800F0A64F /* NTToolTipDemo-Prefix.pch */ = {isa = PBXFileReference; path = "NTToolTipDemo-Prefix.pch"; sourceTree = "<group>"; };
+		CA66856914635C4800F0A64F /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		CA66856A14635C4800F0A64F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CA66856C14635C4800F0A64F /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		CA66856D14635C4800F0A64F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CA66857014635C4800F0A64F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		CA66857314635C4800F0A64F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		CA66857A14635C4800F0A64F /* NTToolTipDemoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NTToolTipDemoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA66857B14635C4800F0A64F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		CA66858314635C4800F0A64F /* NTToolTipDemoTests-Info.plist */ = {isa = PBXFileReference; path = "NTToolTipDemoTests-Info.plist"; sourceTree = "<group>"; };
+		CA66858514635C4800F0A64F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CA66858714635C4800F0A64F /* NTToolTipDemoTests.h */ = {isa = PBXFileReference; path = NTToolTipDemoTests.h; sourceTree = "<group>"; };
+		CA66858814635C4800F0A64F /* NTToolTipDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTToolTipDemoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA66855314635C4700F0A64F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA66855B14635C4800F0A64F /* UIKit.framework in Frameworks */,
+				CA66855D14635C4800F0A64F /* Foundation.framework in Frameworks */,
+				CA66855F14635C4800F0A64F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA66857614635C4800F0A64F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA66857C14635C4800F0A64F /* SenTestingKit.framework in Frameworks */,
+				CA66857D14635C4800F0A64F /* UIKit.framework in Frameworks */,
+				CA66857E14635C4800F0A64F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA66854B14635C4700F0A64F = {
+			isa = PBXGroup;
+			children = (
+				CA66856014635C4800F0A64F /* NTToolTipDemo */,
+				CA66858114635C4800F0A64F /* NTToolTipDemoTests */,
+				CA66855914635C4800F0A64F /* Frameworks */,
+				CA66855714635C4800F0A64F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA66855714635C4800F0A64F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA66855614635C4800F0A64F /* NTToolTipDemo.app */,
+				CA66857A14635C4800F0A64F /* NTToolTipDemoTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA66855914635C4800F0A64F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA66855A14635C4800F0A64F /* UIKit.framework */,
+				CA66855C14635C4800F0A64F /* Foundation.framework */,
+				CA66855E14635C4800F0A64F /* CoreGraphics.framework */,
+				CA66857B14635C4800F0A64F /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA66856014635C4800F0A64F /* NTToolTipDemo */ = {
+			isa = PBXGroup;
+			children = (
+				CA66856914635C4800F0A64F /* AppDelegate.h */,
+				CA66856A14635C4800F0A64F /* AppDelegate.m */,
+				CA66856C14635C4800F0A64F /* ViewController.h */,
+				CA66856D14635C4800F0A64F /* ViewController.m */,
+				CA66856F14635C4800F0A64F /* ViewController_iPhone.xib */,
+				CA66857214635C4800F0A64F /* ViewController_iPad.xib */,
+				CA66856114635C4800F0A64F /* Supporting Files */,
+			);
+			path = NTToolTipDemo;
+			sourceTree = "<group>";
+		};
+		CA66856114635C4800F0A64F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA66856214635C4800F0A64F /* NTToolTipDemo-Info.plist */,
+				CA66856314635C4800F0A64F /* InfoPlist.strings */,
+				CA66856614635C4800F0A64F /* main.m */,
+				CA66856814635C4800F0A64F /* NTToolTipDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CA66858114635C4800F0A64F /* NTToolTipDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA66858714635C4800F0A64F /* NTToolTipDemoTests.h */,
+				CA66858814635C4800F0A64F /* NTToolTipDemoTests.m */,
+				CA66858214635C4800F0A64F /* Supporting Files */,
+			);
+			path = NTToolTipDemoTests;
+			sourceTree = "<group>";
+		};
+		CA66858214635C4800F0A64F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA66858314635C4800F0A64F /* NTToolTipDemoTests-Info.plist */,
+				CA66858414635C4800F0A64F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA66855514635C4700F0A64F /* NTToolTipDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA66858C14635C4800F0A64F /* Build configuration list for PBXNativeTarget "NTToolTipDemo" */;
+			buildPhases = (
+				CA66855214635C4700F0A64F /* Sources */,
+				CA66855314635C4700F0A64F /* Frameworks */,
+				CA66855414635C4700F0A64F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NTToolTipDemo;
+			productName = NTToolTipDemo;
+			productReference = CA66855614635C4800F0A64F /* NTToolTipDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CA66857914635C4800F0A64F /* NTToolTipDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA66858F14635C4800F0A64F /* Build configuration list for PBXNativeTarget "NTToolTipDemoTests" */;
+			buildPhases = (
+				CA66857514635C4800F0A64F /* Sources */,
+				CA66857614635C4800F0A64F /* Frameworks */,
+				CA66857714635C4800F0A64F /* Resources */,
+				CA66857814635C4800F0A64F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA66858014635C4800F0A64F /* PBXTargetDependency */,
+			);
+			name = NTToolTipDemoTests;
+			productName = NTToolTipDemoTests;
+			productReference = CA66857A14635C4800F0A64F /* NTToolTipDemoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA66854D14635C4700F0A64F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = CA66855014635C4700F0A64F /* Build configuration list for PBXProject "NTToolTipDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CA66854B14635C4700F0A64F;
+			productRefGroup = CA66855714635C4800F0A64F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA66855514635C4700F0A64F /* NTToolTipDemo */,
+				CA66857914635C4800F0A64F /* NTToolTipDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA66855414635C4700F0A64F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA66856514635C4800F0A64F /* InfoPlist.strings in Resources */,
+				CA66857114635C4800F0A64F /* ViewController_iPhone.xib in Resources */,
+				CA66857414635C4800F0A64F /* ViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA66857714635C4800F0A64F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA66858614635C4800F0A64F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CA66857814635C4800F0A64F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA66855214635C4700F0A64F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA66856714635C4800F0A64F /* main.m in Sources */,
+				CA66856B14635C4800F0A64F /* AppDelegate.m in Sources */,
+				CA66856E14635C4800F0A64F /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA66857514635C4800F0A64F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA66858914635C4800F0A64F /* NTToolTipDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA66858014635C4800F0A64F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA66855514635C4700F0A64F /* NTToolTipDemo */;
+			targetProxy = CA66857F14635C4800F0A64F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CA66856314635C4800F0A64F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA66856414635C4800F0A64F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CA66856F14635C4800F0A64F /* ViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA66857014635C4800F0A64F /* en */,
+			);
+			name = ViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		CA66857214635C4800F0A64F /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA66857314635C4800F0A64F /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		CA66858414635C4800F0A64F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA66858514635C4800F0A64F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA66858A14635C4800F0A64F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA66858B14635C4800F0A64F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA66858D14635C4800F0A64F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NTToolTipDemo/NTToolTipDemo-Prefix.pch";
+				INFOPLIST_FILE = "NTToolTipDemo/NTToolTipDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CA66858E14635C4800F0A64F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NTToolTipDemo/NTToolTipDemo-Prefix.pch";
+				INFOPLIST_FILE = "NTToolTipDemo/NTToolTipDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CA66859014635C4800F0A64F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NTToolTipDemo.app/NTToolTipDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NTToolTipDemo/NTToolTipDemo-Prefix.pch";
+				INFOPLIST_FILE = "NTToolTipDemoTests/NTToolTipDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		CA66859114635C4800F0A64F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NTToolTipDemo.app/NTToolTipDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NTToolTipDemo/NTToolTipDemo-Prefix.pch";
+				INFOPLIST_FILE = "NTToolTipDemoTests/NTToolTipDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA66855014635C4700F0A64F /* Build configuration list for PBXProject "NTToolTipDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA66858A14635C4800F0A64F /* Debug */,
+				CA66858B14635C4800F0A64F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA66858C14635C4800F0A64F /* Build configuration list for PBXNativeTarget "NTToolTipDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA66858D14635C4800F0A64F /* Debug */,
+				CA66858E14635C4800F0A64F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CA66858F14635C4800F0A64F /* Build configuration list for PBXNativeTarget "NTToolTipDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA66859014635C4800F0A64F /* Debug */,
+				CA66859114635C4800F0A64F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA66854D14635C4700F0A64F /* Project object */;
+}
