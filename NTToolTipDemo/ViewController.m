@@ -3,12 +3,22 @@
 //  NTToolTipDemo
 //
 //  Created by Brandon Nason on 11/3/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 Nason Tech. All rights reserved.
 //
 
 #import "ViewController.h"
+#import "NTToolTip.h"
 
 @implementation ViewController
+{
+	IBOutlet UILabel *label;
+	IBOutlet UIButton *button;
+	IBOutlet UISegmentedControl *segmentedControl;
+	IBOutlet UITextField *textField;
+	IBOutlet UIStepper *stepper;
+	IBOutlet UIProgressView *progressBar;
+	NTToolTip *toolTip;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -20,35 +30,15 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+	textField.inputView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-}
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
+	toolTip = [[NTToolTip alloc] initWithTitle:@"" message:@"Select any item!" pointAt:button];
+	[toolTip show];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -59,6 +49,29 @@
 	} else {
 	    return YES;
 	}
+}
+
+- (IBAction)toolTipShow:(id)sender
+{
+	UIView *originalView = [toolTip pointAt];
+
+	// Dismiss and release old NSToolTip
+	[toolTip dismiss];
+	[toolTip release], toolTip = nil;
+
+	if (originalView != sender)
+	{
+		// Create new NSToolTip for new item
+		toolTip = [[NTToolTip alloc] initWithTitle:@"" message:NSStringFromClass([sender class]) pointAt:sender];
+		[toolTip show];
+	}
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	UIView *view = [[touches anyObject] view];
+	if (view.tag > 0)
+		[self toolTipShow:view];
 }
 
 @end

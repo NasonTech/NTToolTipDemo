@@ -21,6 +21,9 @@
 		CA66857E14635C4800F0A64F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA66855C14635C4800F0A64F /* Foundation.framework */; };
 		CA66858614635C4800F0A64F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA66858414635C4800F0A64F /* InfoPlist.strings */; };
 		CA66858914635C4800F0A64F /* NTToolTipDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66858814635C4800F0A64F /* NTToolTipDemoTests.m */; };
+		CA66859414635E7800F0A64F /* NTToolTip.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66859314635E7800F0A64F /* NTToolTip.m */; };
+		CA6685971463771600F0A64F /* CGEnhancements.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6685961463771500F0A64F /* CGEnhancements.m */; };
+		CA6685991463797000F0A64F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CA6685981463797000F0A64F /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,22 +41,27 @@
 		CA66855A14635C4800F0A64F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA66855C14635C4800F0A64F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CA66855E14635C4800F0A64F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CA66856214635C4800F0A64F /* NTToolTipDemo-Info.plist */ = {isa = PBXFileReference; path = "NTToolTipDemo-Info.plist"; sourceTree = "<group>"; };
+		CA66856214635C4800F0A64F /* NTToolTipDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTToolTipDemo-Info.plist"; sourceTree = "<group>"; };
 		CA66856414635C4800F0A64F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CA66856614635C4800F0A64F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CA66856814635C4800F0A64F /* NTToolTipDemo-Prefix.pch */ = {isa = PBXFileReference; path = "NTToolTipDemo-Prefix.pch"; sourceTree = "<group>"; };
-		CA66856914635C4800F0A64F /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		CA66856814635C4800F0A64F /* NTToolTipDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NTToolTipDemo-Prefix.pch"; sourceTree = "<group>"; };
+		CA66856914635C4800F0A64F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CA66856A14635C4800F0A64F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CA66856C14635C4800F0A64F /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		CA66856C14635C4800F0A64F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CA66856D14635C4800F0A64F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CA66857014635C4800F0A64F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		CA66857314635C4800F0A64F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		CA66857A14635C4800F0A64F /* NTToolTipDemoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NTToolTipDemoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA66857B14635C4800F0A64F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		CA66858314635C4800F0A64F /* NTToolTipDemoTests-Info.plist */ = {isa = PBXFileReference; path = "NTToolTipDemoTests-Info.plist"; sourceTree = "<group>"; };
+		CA66858314635C4800F0A64F /* NTToolTipDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTToolTipDemoTests-Info.plist"; sourceTree = "<group>"; };
 		CA66858514635C4800F0A64F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CA66858714635C4800F0A64F /* NTToolTipDemoTests.h */ = {isa = PBXFileReference; path = NTToolTipDemoTests.h; sourceTree = "<group>"; };
+		CA66858714635C4800F0A64F /* NTToolTipDemoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTToolTipDemoTests.h; sourceTree = "<group>"; };
 		CA66858814635C4800F0A64F /* NTToolTipDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTToolTipDemoTests.m; sourceTree = "<group>"; };
+		CA66859214635E7800F0A64F /* NTToolTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTToolTip.h; sourceTree = "<group>"; };
+		CA66859314635E7800F0A64F /* NTToolTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTToolTip.m; sourceTree = "<group>"; };
+		CA6685951463765700F0A64F /* CGEnhancements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEnhancements.h; sourceTree = "<group>"; };
+		CA6685961463771500F0A64F /* CGEnhancements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEnhancements.m; sourceTree = "<group>"; };
+		CA6685981463797000F0A64F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +127,12 @@
 				CA66856D14635C4800F0A64F /* ViewController.m */,
 				CA66856F14635C4800F0A64F /* ViewController_iPhone.xib */,
 				CA66857214635C4800F0A64F /* ViewController_iPad.xib */,
+				CA6685951463765700F0A64F /* CGEnhancements.h */,
+				CA6685961463771500F0A64F /* CGEnhancements.m */,
+				CA66859214635E7800F0A64F /* NTToolTip.h */,
+				CA66859314635E7800F0A64F /* NTToolTip.m */,
 				CA66856114635C4800F0A64F /* Supporting Files */,
+				CA6685981463797000F0A64F /* README.md */,
 			);
 			path = NTToolTipDemo;
 			sourceTree = "<group>";
@@ -227,6 +240,7 @@
 				CA66856514635C4800F0A64F /* InfoPlist.strings in Resources */,
 				CA66857114635C4800F0A64F /* ViewController_iPhone.xib in Resources */,
 				CA66857414635C4800F0A64F /* ViewController_iPad.xib in Resources */,
+				CA6685991463797000F0A64F /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +278,8 @@
 				CA66856714635C4800F0A64F /* main.m in Sources */,
 				CA66856B14635C4800F0A64F /* AppDelegate.m in Sources */,
 				CA66856E14635C4800F0A64F /* ViewController.m in Sources */,
+				CA66859414635E7800F0A64F /* NTToolTip.m in Sources */,
+				CA6685971463771600F0A64F /* CGEnhancements.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
