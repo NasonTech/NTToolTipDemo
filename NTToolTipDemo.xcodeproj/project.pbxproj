@@ -22,8 +22,9 @@
 		CA66858614635C4800F0A64F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA66858414635C4800F0A64F /* InfoPlist.strings */; };
 		CA66858914635C4800F0A64F /* NTToolTipDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66858814635C4800F0A64F /* NTToolTipDemoTests.m */; };
 		CA66859414635E7800F0A64F /* NTToolTip.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66859314635E7800F0A64F /* NTToolTip.m */; };
-		CA6685971463771600F0A64F /* CGEnhancements.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6685961463771500F0A64F /* CGEnhancements.m */; };
+		CA6685971463771600F0A64F /* NTCGEnhancements.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6685961463771500F0A64F /* NTCGEnhancements.m */; };
 		CA6685991463797000F0A64F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CA6685981463797000F0A64F /* README.md */; };
+		CA66859B1464F8EC00F0A64F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CA66859A1464F8E900F0A64F /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +60,10 @@
 		CA66858814635C4800F0A64F /* NTToolTipDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTToolTipDemoTests.m; sourceTree = "<group>"; };
 		CA66859214635E7800F0A64F /* NTToolTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTToolTip.h; sourceTree = "<group>"; };
 		CA66859314635E7800F0A64F /* NTToolTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTToolTip.m; sourceTree = "<group>"; };
-		CA6685951463765700F0A64F /* CGEnhancements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEnhancements.h; sourceTree = "<group>"; };
-		CA6685961463771500F0A64F /* CGEnhancements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEnhancements.m; sourceTree = "<group>"; };
+		CA6685951463765700F0A64F /* NTCGEnhancements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCGEnhancements.h; sourceTree = "<group>"; };
+		CA6685961463771500F0A64F /* NTCGEnhancements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCGEnhancements.m; sourceTree = "<group>"; };
 		CA6685981463797000F0A64F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		CA66859A1464F8E900F0A64F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,12 +129,13 @@
 				CA66856D14635C4800F0A64F /* ViewController.m */,
 				CA66856F14635C4800F0A64F /* ViewController_iPhone.xib */,
 				CA66857214635C4800F0A64F /* ViewController_iPad.xib */,
-				CA6685951463765700F0A64F /* CGEnhancements.h */,
-				CA6685961463771500F0A64F /* CGEnhancements.m */,
+				CA6685951463765700F0A64F /* NTCGEnhancements.h */,
+				CA6685961463771500F0A64F /* NTCGEnhancements.m */,
 				CA66859214635E7800F0A64F /* NTToolTip.h */,
 				CA66859314635E7800F0A64F /* NTToolTip.m */,
 				CA66856114635C4800F0A64F /* Supporting Files */,
 				CA6685981463797000F0A64F /* README.md */,
+				CA66859A1464F8E900F0A64F /* LICENSE */,
 			);
 			path = NTToolTipDemo;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				CA66857114635C4800F0A64F /* ViewController_iPhone.xib in Resources */,
 				CA66857414635C4800F0A64F /* ViewController_iPad.xib in Resources */,
 				CA6685991463797000F0A64F /* README.md in Resources */,
+				CA66859B1464F8EC00F0A64F /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +283,7 @@
 				CA66856B14635C4800F0A64F /* AppDelegate.m in Sources */,
 				CA66856E14635C4800F0A64F /* ViewController.m in Sources */,
 				CA66859414635E7800F0A64F /* NTToolTip.m in Sources */,
-				CA6685971463771600F0A64F /* CGEnhancements.m in Sources */,
+				CA6685971463771600F0A64F /* NTCGEnhancements.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

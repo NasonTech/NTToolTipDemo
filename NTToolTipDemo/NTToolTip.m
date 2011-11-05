@@ -1,10 +1,27 @@
+// Copyright (c) 2011, Nason Tech.
+// All rights reserved.
 //
-//  NTToolTip.m
-//  NTToolTipDemo
+// Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+// 
+// Redistributions of source code must retain the above copyright notice, this
+//  list of conditions and the following disclaimer.
 //
-//  Created by Brandon Nason on 11/3/11.
-//  Copyright (c) 2011 Nason Tech. All rights reserved.
+// Redistributions in binary form must reproduce the above copyright notice,
+//  this list of conditions and the following disclaimer in the documentation
+//  and/or other materials provided with the distribution.
 //
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+//  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, TH
+//  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+//  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+//  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+//  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+//  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+//  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+//  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+//  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+//  POSSIBILITY OF SUCH DAMAGE.
 
 #import "NTToolTip.h"
 #import <QuartzCore/QuartzCore.h>
@@ -24,6 +41,7 @@
 @synthesize padding = _padding;
 @synthesize margin = _margin;
 @synthesize arrowSize = _arrowSize;
+@synthesize cornerRadius = _cornerRadius;
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message
 {
@@ -35,8 +53,8 @@
 		self.backgroundColor = [UIColor clearColor];
 		self.fillColor = [UIColor colorWithRed:11/255.0 green:27/255.0 blue:68/255.0 alpha:0.80];
 		self.borderColor = [UIColor colorWithRed:223/255.0 green:225/255.0 blue:230/255.0 alpha:1.0];
-		self.padding = CGOffsetMake(15, 15, 15, 15);
-		self.margin = CGOffsetMake(10, 10, 10, 10);
+		self.padding = NTCGOffsetMake(15, 15, 15, 15);
+		self.margin = NTCGOffsetMake(10, 10, 10, 10);
 		self.arrowSize = CGSizeMake(20, 20);
 
 		self.layer.shadowColor = [[UIColor blackColor] CGColor];
@@ -50,6 +68,7 @@
 		[titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
 		[titleLabel setBackgroundColor:[UIColor clearColor]];
 		[titleLabel setTextColor:[UIColor whiteColor]];
+		[self addSubview:titleLabel];
 		
 		messageLabel = [[UILabel alloc] init];
 		[messageLabel setText:self.message];
@@ -59,6 +78,16 @@
 		[messageLabel setLineBreakMode:UILineBreakModeWordWrap];
 		[messageLabel setTextAlignment:UITextAlignmentCenter];
 		[messageLabel setNumberOfLines:10];
+		[self addSubview:messageLabel];
+		
+		UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
+		for (UIWindow *window in [[UIApplication sharedApplication] windows])
+			if (![NSStringFromClass([window class]) isEqualToString:@"_UIAlertNormalizingOverlayWindow"])
+				mainWindow = window;
+		
+		[self setHidden:YES];
+		[mainWindow addSubview:self];
+		[self sizeToFit];
 	}
 	return self;
 }
@@ -69,55 +98,16 @@
 		self.pointAt = item;
 	else
 		self.pointAt = [item valueForKey:@"view"];
-	
+
 	return [self initWithTitle:title message:message];
 }
 
-#define SPACING 20
+#define SPACING 10
 
-//- (void)showInView:(UIView *)view pointAtFrame:(CGRect)frame animated:(BOOL)animted
 - (void)showAnimated:(BOOL)animated
 {
-	UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
-	for (UIWindow *window in [[UIApplication sharedApplication] windows])
-		if (![NSStringFromClass([window class]) isEqualToString:@"_UIAlertNormalizingOverlayWindow"])
-			mainWindow = window;
-	
-	CGRect windowFrame = [mainWindow frame];
-	CGRect pointAtFrame = [self.pointAt.superview convertRect:self.pointAt.frame toView:nil];
-	CGSize titleMinSize = [self.title sizeWithFont:titleLabel.font];
-	CGSize messageMinSize = [self.message sizeWithFont:messageLabel.font constrainedToSize:CGSizeMake(windowFrame.size.width - CGOffsetGetWidth(self.margin) - CGOffsetGetWidth(self.padding) , 100) lineBreakMode:UILineBreakModeWordWrap];
-	
-	CGSize tooltipSize = CGSizeMake(MAX(titleMinSize.width, messageMinSize.width) + CGOffsetGetWidth(self.padding),
-									titleMinSize.height + messageMinSize.height + CGOffsetGetHeight(self.padding) + self.arrowSize.height + ((titleMinSize.height > 0) ? (SPACING) : (0)));
-	CGPoint location = CGPointMake(0, 0);
-	//	if (CGRectGetMinX(pointAtFrame) < tooltipSize.height)
-	//		location.y = CGRectGetMinY(pointAtFrame) - tooltipSize.height;
-	//	else
-	location.y = CGRectGetMaxY(pointAtFrame);
-	
-	if (CGRectGetMinX(pointAtFrame) < CGRectGetMidX(windowFrame))
-		location.x = CGRectGetMinX(pointAtFrame);
-	else
-		location.x = CGRectGetMaxX(pointAtFrame) - tooltipSize.width;
-	
-	CGRect tooltipFrame = CGRectMake(location.x, location.y, tooltipSize.width, tooltipSize.height);
-	[self setFrame:tooltipFrame];
-	
-	CGRect titleLabelFrame = CGRectMake(tooltipFrame.size.width / 2 - titleMinSize.width / 2,
-										(titleMinSize.height > 0) ? (titleMinSize.height / 2 + self.padding.top + self.arrowSize.height) : (self.arrowSize.height),
-										titleMinSize.width, titleMinSize.height);
-	[titleLabel setFrame:titleLabelFrame];
-	[self addSubview:titleLabel];
-	
-	CGRect messageLabelFrame = CGRectMake(tooltipFrame.size.width / 2 - messageMinSize.width / 2,
-										  CGRectGetMaxY(titleLabel.frame) + ((titleMinSize.height > 0) ? (SPACING) : (self.padding.top)),
-										  messageMinSize.width, messageMinSize.height);
-	[messageLabel setFrame:messageLabelFrame];
-	[self addSubview:messageLabel];
-	
-	[mainWindow addSubview:self];
-	
+	[self setHidden:NO];
+
 	if (animated)
 	{
 		[self setAlpha:0.0];
@@ -145,6 +135,88 @@
 - (void)dismiss
 {
 	[self removeFromSuperview];
+}
+
+- (void)setPointAt:(UIView *)pointAt
+{
+	[_pointAt release], _pointAt = nil;
+	_pointAt = [pointAt retain];
+
+	CGPoint origin = [self calculateOriginInFrame:self.superview.frame forSize:self.frame.size];
+	CGRect tooltipFrame = CGRectMake(origin.x, origin.y, self.frame.size.width, self.frame.size.height);
+	self.frame = tooltipFrame;
+}
+
+- (CGPoint)calculateOriginInFrame:(CGRect)frame forSize:(CGSize)size
+{
+	CGPoint location = CGPointMake(0, 0);
+	location.y = CGRectGetMaxY(self.pointAt.frame) + self.arrowSize.height;
+
+	if (CGRectGetMinX(self.pointAt.frame) < CGRectGetMidX(frame))
+		location.x = CGRectGetMinX(self.pointAt.frame);
+	else
+		location.x = CGRectGetMaxX(self.pointAt.frame) - size.width;
+
+	return location;
+}
+
+- (void)setFrame:(CGRect)frame
+{
+	CGPoint origin = [self calculateOriginInFrame:self.superview.frame forSize:frame.size];
+	CGRect tooltipFrame = CGRectMake(origin.x, origin.y, frame.size.width, frame.size.height);
+	[super setFrame:tooltipFrame];
+}
+
+- (CGSize)sizeThatFits:(CGSize)size
+{
+	UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
+	for (UIWindow *window in [[UIApplication sharedApplication] windows])
+		if (![NSStringFromClass([window class]) isEqualToString:@"_UIAlertNormalizingOverlayWindow"])
+			mainWindow = window;
+
+	CGSize titleMinSize = [self.title sizeWithFont:titleLabel.font];
+	CGSize messageMaxSize = CGSizeMake(mainWindow.frame.size.width - NTCGOffsetGetWidth(self.margin) - NTCGOffsetGetWidth(self.padding), 100);
+	CGSize messageMinSize = [self.message sizeWithFont:messageLabel.font
+									 constrainedToSize:messageMaxSize
+										 lineBreakMode:UILineBreakModeWordWrap];
+	
+	CGSize tooltipSize = CGSizeMake(MAX(titleMinSize.width, messageMinSize.width) + NTCGOffsetGetWidth(self.padding),
+									titleMinSize.height + messageMinSize.height + NTCGOffsetGetHeight(self.padding) + self.arrowSize.height + ((titleMinSize.height > 0) ? (SPACING) : (0)));
+
+	return tooltipSize;
+}
+
+- (void)layoutSubviews
+{
+	if ([self.title isEqualToString:@""] || self.title != nil)
+	{
+		CGSize titleMinSize = [self.title sizeWithFont:titleLabel.font];
+		CGRect titleFrame = CGRectMake(self.frame.size.width / 2 - titleMinSize.width / 2,
+									  self.arrowSize.height + self.padding.top,
+									  titleMinSize.width,
+									  titleMinSize.height);
+		titleLabel.frame = titleFrame;
+	}
+	else
+	{
+		titleLabel.frame = CGRectMake(0, 0, 0, 0);
+		titleLabel.hidden = YES;
+	}
+
+	if ([self.message isEqualToString:@""] || self.message != nil)
+	{
+		CGSize messageMinSize = [self.message sizeWithFont:messageLabel.font];
+		CGRect messageFrame = CGRectMake(self.padding.left,
+									   (messageLabel.frame.size.height > 0) ? ( CGRectGetMaxY(messageLabel.frame) + SPACING ) : ( self.arrowSize.height + self.padding.top ),
+									   messageMinSize.width,
+									   messageMinSize.height);
+		messageLabel.frame = messageFrame;
+	}
+	else
+	{
+		messageLabel.frame = CGRectMake(0, 0, 0, 0);
+		messageLabel.hidden = YES;
+	}
 }
 
 - (void)drawRect:(CGRect)rect
