@@ -38,6 +38,19 @@
 @property (nonatomic, assign) NTCGOffset margin;
 @property (nonatomic, assign) CGSize arrowSize;
 @property (nonatomic, assign) NSInteger cornerRadius;
+@property (nonatomic, assign) NSUInteger orientation;
+
+enum
+{
+	NTToolTipOrientationAuto,
+	NTToolTipOrientationTop,
+	NTToolTipOrientationBottom,
+	NTToolTipOrientationLeft,
+	NTToolTipOrientationRight,
+	NTToolTipOrientationNone,
+};
+
+typedef NSUInteger NTToolTipOrientation;
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message;
 - (id)initWithTitle:(NSString *)title message:(NSString *)message pointAt:(id)item;
@@ -46,8 +59,12 @@
 - (void)show;
 - (void)dismiss;
 
-- (CGPoint)calculateOriginInFrame:(CGRect)frame forSize:(CGSize)size;
+//- (CGPoint)calculateOriginInFrame:(CGRect)frame forSize:(CGSize)size;
 - (void)drawRoundedRectWithArrow:(CGRect)rect inContext:(CGContextRef)context withRadius:(CGFloat)radius pointingAtFrame:(CGRect)frame;
 - (void)animateToSize:(NSString *)id finished:(NSNumber *)finished context:(void *)context;
+
+- (NSArray *)calculateOriginAndArrowPlacementForOrientation:(NTToolTipOrientation)orientation;
+- (CGRect)calculateFrameForOrientation:(NTToolTipOrientation)orientation;
+- (NTToolTipOrientation)calculateOrientation;
 
 @end
