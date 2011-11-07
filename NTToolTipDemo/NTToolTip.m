@@ -44,6 +44,7 @@
 @synthesize arrowSize = _arrowSize; // Height = length, Width = base
 @synthesize cornerRadius = _cornerRadius;
 @synthesize orientation = _orientation;
+@synthesize orientationOrder = _orientationOrder;
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message
 {
@@ -60,6 +61,10 @@
 		self.arrowSize = CGSizeMake(20, 20);
 		self.orientation = NTToolTipOrientationAuto;
 		self.cornerRadius = 8;
+		self.orientationOrder = [[NSArray alloc] initWithObjects:[NSNumber numberWithUnsignedInt:NTToolTipOrientationTop],
+																 [NSNumber numberWithUnsignedInt:NTToolTipOrientationBottom],
+																 [NSNumber numberWithUnsignedInt:NTToolTipOrientationLeft],
+																 [NSNumber numberWithUnsignedInt:NTToolTipOrientationRight], nil];
 
 		self.layer.shadowColor = [[UIColor blackColor] CGColor];
 		self.layer.shadowOpacity = 0.7;
@@ -164,6 +169,33 @@
 	return array;
 }
 
+- (BOOL)isWordInString:(NSString *)string WiderThanConstraint:(CGSize)constraint withFont:(UIFont *)font
+{
+	NSArray *words = [string componentsSeparatedByString:@" "];
+	for (NSString *word in words)
+	{
+		CGSize wordSize = [word sizeWithFont:font];
+		if (wordSize.width > constraint.width)
+			return YES;
+	}
+
+	return NO;
+}
+
+- (NSInteger)widthOfBiggestWordInString:(NSString *)string withFont:(UIFont *)font
+{
+	NSArray *words = [string componentsSeparatedByString:@" "];
+	NSInteger width = 0;
+	for (NSString *word in words)
+	{
+		CGSize wordSize = [word sizeWithFont:font];
+		if (wordSize.width > width)
+			width = wordSize.width;
+	}
+	
+	return width;
+}
+
 - (CGRect)calculateFrameForOrientation:(NTToolTipOrientation)orientation
 {
 	CGRect frame = CGRectMake(0, 0, 0, 0);
@@ -179,10 +211,14 @@
 											frameMaxHeight - NTCGOffsetGetHeight(self.padding) - self.arrowSize.height);
 		CGSize titleMinSize = [self.title sizeWithFont:titleLabel.font
 									 constrainedToSize:contentsMaxSize
-										 lineBreakMode:UILineBreakModeTailTruncation];
+										 lineBreakMode:titleLabel.lineBreakMode];
 		CGSize messageMinSize = [self.message sizeWithFont:messageLabel.font
 										 constrainedToSize:contentsMaxSize
-											 lineBreakMode:UILineBreakModeWordWrap];
+											 lineBreakMode:messageLabel.lineBreakMode];
+
+		NSInteger messageMinWordSize = [self widthOfBiggestWordInString:self.message withFont:messageLabel.font];
+		if (messageMinWordSize > messageMinSize.width)
+			messageMinSize.width = messageMinWordSize;
 
 		CGFloat frameWidth = fmaxf(titleMinSize.width, messageMinSize.width) + NTCGOffsetGetWidth(self.padding);
 		CGFloat frameHeight = fmaxf(titleMinSize.height, messageMinSize.height) + NTCGOffsetGetHeight(self.padding) + self.arrowSize.height;
@@ -196,19 +232,19 @@
 	{
 		CGFloat frameMaxWidth = self.superview.frame.size.width - NTCGOffsetGetWidth(self.margin);
 		CGFloat frameMaxHeight = CGRectGetMinY(self.pointAt.frame) - NTCGOffsetGetHeight(self.margin);
-		
+
 		CGSize contentsMaxSize = CGSizeMake(frameMaxWidth - NTCGOffsetGetWidth(self.padding),
 											frameMaxHeight - NTCGOffsetGetHeight(self.padding) - self.arrowSize.height);
 		CGSize titleMinSize = [self.title sizeWithFont:titleLabel.font
 									 constrainedToSize:contentsMaxSize
-										 lineBreakMode:UILineBreakModeTailTruncation];
+										 lineBreakMode:titleLabel.lineBreakMode];
 		CGSize messageMinSize = [self.message sizeWithFont:messageLabel.font
 										 constrainedToSize:contentsMaxSize
-											 lineBreakMode:UILineBreakModeWordWrap];
-		
+											 lineBreakMode:messageLabel.lineBreakMode];
+
 		CGFloat frameWidth = fmaxf(titleMinSize.width, messageMinSize.width) + NTCGOffsetGetWidth(self.padding);
 		CGFloat frameHeight = fmaxf(titleMinSize.height, messageMinSize.height) + NTCGOffsetGetHeight(self.padding) + self.arrowSize.height;
-		
+
 		CGFloat frameLeft = CGRectGetMidX(pointAtFrameInWindowA) - frameWidth / 2;
 		CGFloat frameTop = CGRectGetMaxY(pointAtFrameInWindowA);
 
@@ -223,11 +259,10 @@
 											frameMaxHeight - NTCGOffsetGetHeight(self.padding));
 		CGSize titleMinSize = [self.title sizeWithFont:titleLabel.font
 									 constrainedToSize:contentsMaxSize
-										 lineBreakMode:UILineBreakModeTailTruncation];
+										 lineBreakMode:titleLabel.lineBreakMode];
 		CGSize messageMinSize = [self.message sizeWithFont:messageLabel.font
 										 constrainedToSize:contentsMaxSize
-											 lineBreakMode:UILineBreakModeWordWrap];
-		NSLog(@"A%@ - %@", NSStringFromCGSize(contentsMaxSize), NSStringFromCGSize(messageMinSize));
+											 lineBreakMode:messageLabel.lineBreakMode];
 
 		CGFloat frameWidth = fmaxf(titleMinSize.width, messageMinSize.width) + NTCGOffsetGetWidth(self.padding) + self.arrowSize.height;
 		CGFloat frameHeight = fmaxf(titleMinSize.height, messageMinSize.height) + NTCGOffsetGetHeight(self.padding);
@@ -246,10 +281,10 @@
 											frameMaxHeight - NTCGOffsetGetHeight(self.padding));
 		CGSize titleMinSize = [self.title sizeWithFont:titleLabel.font
 									 constrainedToSize:contentsMaxSize
-										 lineBreakMode:UILineBreakModeTailTruncation];
+										 lineBreakMode:titleLabel.lineBreakMode];
 		CGSize messageMinSize = [self.message sizeWithFont:messageLabel.font
 										 constrainedToSize:contentsMaxSize
-											 lineBreakMode:UILineBreakModeWordWrap];
+											 lineBreakMode:messageLabel.lineBreakMode];
 
 		CGFloat frameWidth = fmaxf(titleMinSize.width, messageMinSize.width) + NTCGOffsetGetWidth(self.padding) + self.arrowSize.height;
 		CGFloat frameHeight = fmaxf(titleMinSize.height, messageMinSize.height) + NTCGOffsetGetHeight(self.padding);
@@ -333,23 +368,18 @@
 {
 	NTToolTipOrientation orientation = [self calculateOrientation];
 
-	CGSize contentsMaxSize;
+	CGSize contentsMaxSize = CGSizeMake(self.bounds.size.width - NTCGOffsetGetWidth(self.padding),
+										self.bounds.size.height - NTCGOffsetGetHeight(self.padding));
 	if (orientation == NTToolTipOrientationTop || orientation == NTToolTipOrientationBottom)
-	{
-		contentsMaxSize = CGSizeMake(self.frame.size.width - NTCGOffsetGetWidth(self.padding),
-										self.frame.size.height - NTCGOffsetGetHeight(self.padding) - self.arrowSize.height);
-	}
+		contentsMaxSize.height -= self.arrowSize.height;
 	else if (orientation == NTToolTipOrientationLeft || orientation == NTToolTipOrientationRight)
-	{
-		contentsMaxSize = CGSizeMake(self.frame.size.width - NTCGOffsetGetWidth(self.padding) - self.arrowSize.height,
-									 self.frame.size.height - NTCGOffsetGetHeight(self.padding));
-	}
+		contentsMaxSize.width -= self.arrowSize.height;
 
 	if ([self.title isEqualToString:@""] || self.title != nil)
 	{
 		CGSize titleMinSize = [self.title sizeWithFont:titleLabel.font
 									 constrainedToSize:contentsMaxSize
-										 lineBreakMode:UILineBreakModeTailTruncation];
+										 lineBreakMode:titleLabel.lineBreakMode];
 		CGRect titleFrame = CGRectMake(self.padding.left,
 									   self.padding.top,
 									   titleMinSize.width,
@@ -372,12 +402,11 @@
 	{
 		CGSize messageMinSize = [self.message sizeWithFont:messageLabel.font
 										 constrainedToSize:contentsMaxSize
-											 lineBreakMode:UILineBreakModeWordWrap];
+											 lineBreakMode:messageLabel.lineBreakMode];
 		CGRect messageFrame = CGRectMake(self.padding.left,
 									     (messageLabel.frame.size.height > 0) ? ( CGRectGetMaxY(messageLabel.frame) + SPACING ) : ( self.padding.top ),
 									     messageMinSize.width,
 									     messageMinSize.height);
-		NSLog(@"B%@ - %@", NSStringFromCGSize(contentsMaxSize), NSStringFromCGSize(messageMinSize));
 
 		if (orientation == NTToolTipOrientationBottom)
 			messageFrame.origin.y += self.arrowSize.height;

@@ -39,6 +39,7 @@
 @property (nonatomic, assign) CGSize arrowSize;
 @property (nonatomic, assign) NSInteger cornerRadius;
 @property (nonatomic, assign) NSUInteger orientation;
+@property (nonatomic, retain) NSArray *orientationOrder;
 
 enum
 {
@@ -59,7 +60,8 @@ typedef NSUInteger NTToolTipOrientation;
 - (void)show;
 - (void)dismiss;
 
-//- (CGPoint)calculateOriginInFrame:(CGRect)frame forSize:(CGSize)size;
+- (BOOL)isWordInString:(NSString *)string WiderThanConstraint:(CGSize)constraint withFont:(UIFont *)font;
+- (NSInteger)widthOfBiggestWordInString:(NSString *)string withFont:(UIFont *)font;
 - (void)drawRoundedRectWithArrow:(CGRect)rect inContext:(CGContextRef)context withRadius:(CGFloat)radius pointingAtFrame:(CGRect)frame;
 - (void)animateToSize:(NSString *)id finished:(NSNumber *)finished context:(void *)context;
 
